@@ -1,0 +1,42 @@
+package br.com.lfa.trab1.sintatico;
+
+import java_cup.runtime.*;
+import java.util.*;
+import java.io.*;
+
+parser code {:
+    
+    public void report_fatal_error(String message, Object info)  {
+            System.out.println("Palavra não pertence");
+            System.exit(-1);
+    }
+
+:};
+
+terminal a,b;
+
+nonterminal X,Y,B,A,S, F, Aa, Ab, AY, Ba, Bb, BY, Fa, Fb, FY;
+
+start with S;
+
+S ::= X Y;
+
+X ::= X a A | X b B | F;
+
+Aa ::= a A;
+
+Ab ::= b A;
+
+AY ::= Y a;
+
+Ba ::= a B;
+
+Bb ::= b B;
+
+BY ::= Y b;
+
+Fa ::= a F;
+
+Fb ::= b F;
+
+FY ::= ;
